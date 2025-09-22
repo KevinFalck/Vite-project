@@ -1,3 +1,7 @@
 export default function Footer() {
-  return <footer>Copyright Mexican Food 2024</footer>;
+  return (
+    <footer>
+      <p>Copyright Mexican Food 2024</p>
+    </footer>
+  );
 }
