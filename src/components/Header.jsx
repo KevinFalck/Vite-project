@@ -1,5 +1,4 @@
 import React from "react";
-import "../assets/styles/header.scss";
 import { Navbar, Nav, Container, Image } from "react-bootstrap";
 
 export default function Header() {
@@ -10,7 +9,9 @@ export default function Header() {
           <Image
             src="https://cdn.pixabay.com/photo/2018/03/26/14/18/man-3262834_960_720.png"
             alt="Mexicain jouant de la guitare"
-            className="app-logo"
+            roundedCircle
+            width={50}
+            height={50}
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="main-navbar" />

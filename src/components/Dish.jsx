@@ -4,8 +4,8 @@ import { Card } from "react-bootstrap";
 
 const Dish = ({ title, price, image }) => {
   return (
-    <Card className="dish-card">
-      <Card.Img variant="top" src={image} alt={title} className="dish-image" />
+    <Card>
+      <Card.Img variant="top" src={image} alt={title} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{price}</Card.Text>
