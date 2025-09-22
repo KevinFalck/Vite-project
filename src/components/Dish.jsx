@@ -1,12 +1,9 @@
-const Dish = ({ title, description, price, image, slug, stock }) => {
+const Dish = ({ title, price, image }) => {
   return (
-    <article className="dish">
+    <article>
       <h2>{title}</h2>
-      <p>{description}</p>
       <p>{price}</p>
       <img src={image} alt={title} />
-      <p>{slug}</p>
-      <p>{stock}</p>
     </article>
   );
 };
