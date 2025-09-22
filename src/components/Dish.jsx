@@ -1,10 +1,16 @@
+import "../assets/styles/dish.scss";
+import React from "react";
+import { Card } from "react-bootstrap";
+
 const Dish = ({ title, price, image }) => {
   return (
-    <article>
-      <h2>{title}</h2>
-      <p>{price}</p>
-      <img src={image} alt={title} />
-    </article>
+    <Card className="dish-card">
+      <Card.Img variant="top" src={image} alt={title} className="dish-image" />
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{price}</Card.Text>
+      </Card.Body>
+    </Card>
   );
 };
 
