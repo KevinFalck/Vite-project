@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
 import { Container, Row, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { useState } from "react";
 
 function App() {
   const dishes = [
@@ -35,13 +37,24 @@ function App() {
     },
   ];
 
-  const filteredDishes = dishes.filter((dish) => dish.stock > 0);
+  const [showNewOnly, setShowNewOnly] = useState(false);
+
+  const filteredDishes = dishes.filter(
+    (dish) => dish.stock > 0 && (!showNewOnly || dish.isNew)
+  );
+
+  function handleShowNewOnly() {
+    setShowNewOnly((prev) => !prev);
+  }
 
   return (
     <>
       <Header />
       <main>
         <Container>
+          <Button className="mb-4" onClick={handleShowNewOnly}>
+            {showNewOnly ? "Tous les plats" : "Nouveautés Uniquement"}
+          </Button>
           <Row className="g-4">
             {filteredDishes.map((dish) => (
               <Col xs={12} md={6} lg={4} key={dish.id}>
