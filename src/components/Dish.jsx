@@ -8,7 +8,7 @@ const Dish = ({ title, price, image }) => {
       <Card.Img variant="top" src={image} alt={title} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>{price}</Card.Text>
+        <Card.Text>{price}€</Card.Text>
       </Card.Body>
     </Card>
   );
