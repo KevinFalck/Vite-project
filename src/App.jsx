@@ -13,6 +13,7 @@ function App() {
       image:
         "https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg",
       isNew: true,
+      stock: 10,
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ function App() {
       image:
         "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg",
       isNew: false,
+      stock: 0,
     },
     {
       id: 3,
@@ -29,15 +31,19 @@ function App() {
       image:
         "https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg",
       isNew: false,
+      stock: 5,
     },
   ];
+
+  const filteredDishes = dishes.filter((dish) => dish.stock > 0);
+
   return (
     <>
       <Header />
       <main>
         <Container>
           <Row className="g-4">
-            {dishes.map((dish) => (
+            {filteredDishes.map((dish) => (
               <Col xs={12} md={6} lg={4} key={dish.id}>
                 <Dish
                   title={dish.title}
