@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
-const Dish = ({ title, price, image, isNew }) => {
+const Dish = ({ title, price, image, isNew, addToCart }) => {
   return (
     <Card>
       {isNew && (
@@ -14,12 +14,7 @@ const Dish = ({ title, price, image, isNew }) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{price}€</Card.Text>
-        <Button
-          variant="primary"
-          onClick={() =>
-            alert(`Le plat ${title} est maintenant dans votre panier`)
-          }
-        >
+        <Button type="button" variant="primary" onClick={addToCart}>
           Ajouter au panier
         </Button>
       </Card.Body>
