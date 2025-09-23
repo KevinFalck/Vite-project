@@ -2,6 +2,7 @@ import "../assets/styles/dish.scss";
 import React from "react";
 import { Card } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const Dish = ({ title, price, image, isNew }) => {
   return (
@@ -13,6 +14,14 @@ const Dish = ({ title, price, image, isNew }) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{price}€</Card.Text>
+        <Button
+          variant="primary"
+          onClick={() =>
+            alert(`Le plat ${title} est maintenant dans votre panier`)
+          }
+        >
+          Ajouter au panier
+        </Button>
       </Card.Body>
     </Card>
   );
