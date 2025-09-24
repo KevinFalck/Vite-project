@@ -3,8 +3,11 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-const Dish = ({ title, price, image, isNew, addToCart }) => {
+const Dish = ({ title, price, image, isNew }) => {
+  const { addToCart } = useContext(CartContext);
   return (
     <Card>
       {isNew && (
