@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dish from "./components/Dish";
 import { Container, Row, Col } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { CartContext } from "./contexts/CartContext";
+import useCart from "./hooks/useCart";
 
 function App() {
   const dishes = [
@@ -47,13 +47,13 @@ function App() {
     setShowNewOnly((prev) => !prev);
   }
 
-  const { cart } = useContext(CartContext);
+  const { cartCount } = useCart();
 
-  const prevCartCountRef = useRef(cart.cartCount);
+  const prevCartCountRef = useRef(cartCount);
 
   useEffect(() => {
-    prevCartCountRef.current = cart.cartCount;
-  }, [cart.cartCount]);
+    prevCartCountRef.current = cartCount;
+  }, [cartCount]);
 
   return (
     <>
@@ -61,7 +61,7 @@ function App() {
       <main>
         <Container>
           <p className="mb-2">
-            Le panier est passé de {prevCartCountRef.current} à {cart.cartCount}{" "}
+            Le panier est passé de {prevCartCountRef.current} à {cartCount}{" "}
             articles
           </p>
           <Button className="mb-4" onClick={handleShowNewOnly}>

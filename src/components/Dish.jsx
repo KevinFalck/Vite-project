@@ -3,11 +3,10 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import useCart from "../hooks/useCart";
 
 const Dish = ({ title, price, image, isNew }) => {
-  const { dispatch } = useContext(CartContext);
+  const { addToCart, removeFromCart } = useCart();
   return (
     <Card>
       {isNew && (
@@ -18,18 +17,10 @@ const Dish = ({ title, price, image, isNew }) => {
         <Card.Title>{title}</Card.Title>
         <Card.Text>{price}€</Card.Text>
         <div className="d-grid gap-2">
-          <Button
-            type="button"
-            variant="primary"
-            onClick={() => dispatch({ type: "ADD_TO_CART" })}
-          >
+          <Button type="button" variant="primary" onClick={addToCart}>
             Ajouter au panier
           </Button>
-          <Button
-            type="button"
-            variant="danger"
-            onClick={() => dispatch({ type: "REMOVE_FROM_CART" })}
-          >
+          <Button type="button" variant="danger" onClick={removeFromCart}>
             Retirer du panier
           </Button>
         </div>
