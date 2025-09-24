@@ -7,14 +7,6 @@ import { Button } from "react-bootstrap";
 import { CartContext } from "./contexts/CartContext";
 
 function App() {
-  const { cart } = useContext(CartContext);
-
-  const prevCartCountRef = useRef(cart.cartCount);
-
-  useEffect(() => {
-    prevCartCountRef.current = cart.cartCount;
-  }, [cart.cartCount]);
-
   const dishes = [
     {
       id: 1,
@@ -54,6 +46,14 @@ function App() {
   function handleShowNewOnly() {
     setShowNewOnly((prev) => !prev);
   }
+
+  const { cart } = useContext(CartContext);
+
+  const prevCartCountRef = useRef(cart.cartCount);
+
+  useEffect(() => {
+    prevCartCountRef.current = cart.cartCount;
+  }, [cart.cartCount]);
 
   return (
     <>
